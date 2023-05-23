@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Sass from "./pages/Sass";
+import Sass2 from "./pages/Sass2";
+import Home from "./pages/Home";
+import Form from "./pages/Form";
+import Temparature from "./pages/Temparature";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route path="sass" element={<Sass />} />
+            <Route path="sass2" element={<Sass2 />} />
+            <Route path="form" element={<Form />} />
+            <Route path="temparature" element={<Temparature />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
